@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pynta Diary — ชั้นวางของใช้น้องพินตา</title>
+<meta name="description" content="ชั้นวางของใช้น้องพินตา — ของที่ใช้จริงในแต่ละช่วงวัย ตั้งแต่แรกเกิดจนโต">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}
+:root{
+  --paper:#F7F2EE;
+  --paper-2:#F0E6E1;
+  --surface:#FFFCFA;
+  --surface-2:#F4E9E6;
+  --ink:#34252A;
+  --ink-2:#6E5B60;
+  --ink-3:#A0898D;
+  --line:#E6D8D3;
+  --line-2:#DCC7C4;
+  --accent:#B04A63;
+  --accent-soft:#F2DCE1;
+  --sage:#7D8A6C;
+  --shopee:#EE4D2D;
+  --lazada:#2B32A8;
+  --shadow:0 1px 1px rgba(52,37,42,.04), 0 10px 26px -18px rgba(52,37,42,.5);
+  --radius:13px;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#211A1C;
+    --paper-2:#2A2124;
+    --surface:#2B2226;
+    --surface-2:#3A2C31;
+    --ink:#F3E9E7;
+    --ink-2:#C6B2B4;
+    --ink-3:#95807F;
+    --line:#3E3033;
+    --line-2:#513E42;
+    --accent:#E894A8;
+    --accent-soft:#4A3138;
+    --sage:#A3B08E;
+    --shopee:#FF8A6B;
+    --lazada:#9AA0F5;
+    --shadow:0 1px 1px rgba(0,0,0,.3), 0 12px 30px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#211A1C;
+  --paper-2:#2A2124;
+  --surface:#2B2226;
+  --surface-2:#3A2C31;
+  --ink:#F3E9E7;
+  --ink-2:#C6B2B4;
+  --ink-3:#95807F;
+  --line:#3E3033;
+  --line-2:#513E42;
+  --accent:#E894A8;
+  --accent-soft:#4A3138;
+  --sage:#A3B08E;
+  --shopee:#FF8A6B;
+  --lazada:#9AA0F5;
+  --shadow:0 1px 1px rgba(0,0,0,.3), 0 12px 30px -20px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  background-image:radial-gradient(120% 60% at 50% 0%, var(--surface) 0%, transparent 60%);
+  color:var(--ink);
+  font-family:"IBM Plex Sans Thai Looped","Segoe UI",system-ui,sans-serif;
+  font-size:15px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* measuring-tape ribbon */
+.tape{
+  height:24px;background:var(--accent-soft);
+  background-image:
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--accent) 45%, transparent) 0 1px, transparent 1px 11px),
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--accent) 70%, transparent) 0 1px, transparent 1px 55px);
+  background-size:100% 8px, 100% 14px;
+  background-position:left bottom,left bottom;background-repeat:repeat-x;
+  border-bottom:1px solid var(--line-2);
+}
+
+/* masthead */
+header.masthead{padding:38px 0 24px}
+.brandrow{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.wordmark{
+  font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:clamp(36px,5.6vw,58px);letter-spacing:-.025em;line-height:.98;margin:0;
+  text-wrap:balance;
+}
+.wordmark em{font-style:italic;font-weight:400;color:var(--accent)}
+.tagline{margin:12px 0 0;color:var(--ink-2);max-width:54ch}
+.tagline .en{display:block;color:var(--ink-3);font-size:13px;margin-top:2px}
+.headmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+.counts{display:flex;gap:30px;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.count{display:flex;align-items:baseline;gap:9px}
+.count b{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.count span{color:var(--ink-3);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase}
+
+/* controls */
+.controls{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:10px 0;
+}
+.ctrlrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pills{display:flex;gap:6px;flex-wrap:wrap;flex:1 1 100%}
+@media (min-width:1080px){.pills{flex:1 1 auto}}
+.pill{
+  white-space:nowrap;border:1px solid var(--line);background:var(--surface);
+  border-radius:999px;padding:5px 14px;font-size:13.5px;color:var(--ink-2);cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+input.search{
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  border-radius:999px;padding:6px 15px;min-width:150px;flex:0 1 210px;
+}
+input.search::placeholder{color:var(--ink-3)}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:13.5px;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn-primary{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-ghost{border-color:transparent;background:transparent;color:var(--ink-3)}
+.btn-ghost:hover{color:var(--accent)}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+.notice{
+  margin:16px 0 0;padding:11px 15px;border:1px dashed var(--line-2);background:var(--surface-2);
+  border-radius:var(--radius);color:var(--ink-2);font-size:13.5px;
+  display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+}
+
+/* stages + ruler */
+main{padding:8px 0 80px}
+.stage{display:grid;grid-template-columns:78px minmax(0,1fr);padding-top:36px}
+.rail{position:relative}
+.rail::before{content:"";position:absolute;left:31px;top:16px;bottom:-36px;width:1px;background:var(--line-2)}
+.rail::after{content:"";position:absolute;left:21px;top:48px;bottom:-36px;width:10px;
+  background-image:repeating-linear-gradient(to bottom, var(--line-2) 0 1px, transparent 1px 16px)}
+.stage:last-child .rail::before,.stage:last-child .rail::after{bottom:auto;height:0}
+.notch{
+  position:relative;z-index:1;width:62px;height:62px;border-radius:50%;
+  background:var(--surface);border:1px dashed var(--line-2);
+  display:grid;place-content:center;text-align:center;line-height:1.05;
+  box-shadow:0 0 0 5px var(--paper);
+}
+.notch b{font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.notch span{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.stagehead{padding:8px 0 16px}
+.stagehead h2{margin:0;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.stagehead .en{color:var(--sage);font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:500}
+.stagehead p{margin:5px 0 0;color:var(--ink-2);font-size:14px;max-width:58ch}
+
+.stage.anystage{margin-top:38px;border-top:1px dashed var(--line-2)}
+.stage.anystage .rail::before,.stage.anystage .rail::after{display:none}
+.stage.anystage .notch{border-style:solid;border-color:var(--accent);background:var(--accent-soft)}
+.stage.anystage .notch b{color:var(--accent);font-size:27px;line-height:1}
+
+/* product cards — mounted prints */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(162px,1fr))}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  display:flex;flex-direction:column;box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 2px 3px rgba(52,37,42,.05),0 18px 34px -20px rgba(52,37,42,.65)}
+.icon{
+  position:relative;aspect-ratio:1;width:100%;padding:8px;background:var(--surface);
+  border-bottom:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;
+}
+.icon .frame{position:relative;width:100%;height:100%;overflow:hidden;border-radius:5px;background:var(--surface-2);display:grid;place-items:center}
+.urlnote{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.icon img{width:100%;height:100%;object-fit:cover;display:block}
+/* album photo corners */
+.icon::before,.icon::after{
+  content:"";position:absolute;width:14px;height:14px;border:2px solid var(--accent-soft);pointer-events:none;
+}
+.icon::before{top:4px;left:4px;border-right:0;border-bottom:0;border-radius:3px 0 0 0}
+.icon::after{bottom:4px;right:4px;border-left:0;border-top:0;border-radius:0 0 3px 0}
+.mono{font-family:Fraunces,Georgia,serif;font-size:42px;font-weight:400;font-style:italic;color:var(--accent)}
+.cbody{padding:12px 13px 6px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.cname{font-weight:600;font-size:14.5px;line-height:1.36;margin:0}
+.cen{font-size:12px;color:var(--ink-3);margin:0;font-family:Fraunces,Georgia,serif;font-style:italic}
+.cnote{font-size:12.5px;color:var(--ink-2);margin:0}
+.links{display:flex;gap:6px;margin-top:auto;padding-top:9px;flex-wrap:wrap}
+.shop{
+  text-decoration:none;font-size:12px;font-weight:500;border-radius:8px;padding:5px 10px;
+  border:1px solid var(--line);color:var(--ink-2);display:inline-flex;align-items:center;gap:6px;background:var(--surface);
+}
+.shop .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+.shop.sp .dot{background:var(--shopee)}
+.shop.lz .dot{background:var(--lazada)}
+.shop:hover{border-color:var(--ink);color:var(--ink)}
+.cardfoot{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:0 13px 11px}
+.tiny{font-size:11.5px;color:var(--ink-3);background:none;border:0;cursor:pointer;padding:2px 0}
+.tiny:hover{color:var(--accent);text-decoration:underline}
+.badge-ex{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line-2);border-radius:999px;padding:1px 8px}
+.empty{border:1px dashed var(--line-2);border-radius:var(--radius);padding:24px;color:var(--ink-3);font-size:14px;text-align:center}
+
+/* edit-text mode */
+.editbar{
+  position:sticky;top:52px;z-index:39;margin:14px 0 0;padding:10px 15px;
+  background:var(--accent-soft);border:1px solid var(--line-2);border-radius:var(--radius);
+  display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13.5px;
+}
+body.editing [data-k],body.editing [data-p]{
+  outline:1px dashed var(--line-2);outline-offset:3px;border-radius:3px;cursor:text;
+}
+body.editing [data-k]:hover,body.editing [data-p]:hover{outline-color:var(--accent);background:var(--accent-soft)}
+body.editing [data-k]:focus,body.editing [data-p]:focus{outline:2px solid var(--accent);background:var(--surface)}
+body.editing .card:hover{transform:none}
+body.editing a.shop{pointer-events:none;opacity:.5}
+
+/* modal */
+.scrim{position:fixed;inset:0;z-index:90;background:rgba(40,28,32,.55);display:grid;place-items:center;padding:16px;overflow:auto}
+.sheet{background:var(--surface);border-radius:18px;border:1px solid var(--line);width:min(620px,100%);padding:24px;box-shadow:0 34px 74px -34px rgba(0,0,0,.7)}
+.sheet h3{margin:0 0 3px;font-family:Fraunces,Georgia,serif;font-size:25px;font-weight:600}
+.sheet .sub{margin:0 0 18px;color:var(--ink-3);font-size:13px}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.field label{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.field input,.field select,.field textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 12px;width:100%}
+.field textarea{resize:vertical;min-height:56px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.stagepick{display:flex;flex-wrap:wrap;gap:6px}
+.chk{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer;color:var(--ink-2);background:var(--paper)}
+.chk[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.preview{display:flex;gap:13px;align-items:center}
+.preview .icon{width:76px;height:76px;flex:0 0 76px;border-radius:10px;border:1px solid var(--line)}
+.sheetfoot{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+.err{color:var(--accent);font-size:12.5px;margin:6px 0 0}
+
+footer{border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);font-size:12.5px}
+footer p{margin:0 0 7px;max-width:72ch}
+
+@media (max-width:640px){
+  .stage{grid-template-columns:50px minmax(0,1fr)}
+  .rail::before{left:21px}
+  .rail::after{left:12px}
+  .notch{width:42px;height:42px;box-shadow:0 0 0 4px var(--paper)}
+  .notch b{font-size:14px}
+  .notch span{display:none}
+  .two{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(142px,1fr));gap:11px}
+  .editbar{top:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.follow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.follow a{text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 15px;font-size:13.5px;color:var(--ink-2)}
+.follow a:hover{border-color:var(--accent);color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="tape" aria-hidden="true"></div>
+<header class="masthead"><div class="wrap"><div class="brandrow">
+<div><h1 class="wordmark" id="pTitle"></h1><p class="tagline"><span id="pTag"></span><span class="en" id="pSub"></span></p></div>
+<div class="headmeta"><button class="btn" id="langBtn" type="button">EN</button></div>
+</div><div class="counts">
+<div class="count"><b id="cProd">0</b><span id="lProd"></span></div>
+<div class="count"><b id="cStage">0</b><span id="lStage"></span></div>
+<div class="count"><b id="cCat">0</b><span id="lCat"></span></div>
+</div></div></header>
+<div class="controls"><div class="wrap ctrlrow">
+<div class="pills" id="stagePills"></div>
+<input class="search" id="search" type="search">
+<select class="btn" id="catSel" style="max-width:190px"></select>
+</div></div>
+<main class="wrap"><div id="stages"></div></main>
+<footer><div class="wrap">
+<div class="follow" id="pFollow"></div>
+<p id="pDisc"></p>
+<p id="pFoot"></p>
+</div></footer>
+<script>
+(function(){
+var D={"stages":[{"id":"s0","th":"แรกเกิด – 3 เดือน","en":"Newborn – 3 months","mark":"0–3","unit":"เดือน","noteTh":"นอนเยอะ กินนมทุก 2–3 ชั่วโมง ผิวบอบบางมาก","noteEn":"Sleeping, feeding every 2–3 hours, very delicate skin"},{"id":"s1","th":"3 – 6 เดือน","en":"3 – 6 months","mark":"3–6","unit":"เดือน","noteTh":"คอแข็ง พลิกตัว หยิบของเข้าปาก เริ่มน้ำลายไหล","noteEn":"Head control, rolling over, everything goes in the mouth"},{"id":"s2","th":"6 – 9 เดือน","en":"6 – 9 months","mark":"6–9","unit":"เดือน","noteTh":"เริ่มอาหารเสริม นั่งเองได้ คลานไปทั่วบ้าน","noteEn":"Starting solids, sitting up, crawling everywhere"},{"id":"s3","th":"9 – 12 เดือน","en":"9 – 12 months","mark":"9–12","unit":"เดือน","noteTh":"เกาะยืน เกาะเดิน หยิบของชิ้นเล็กด้วยสองนิ้ว","noteEn":"Pulling up, cruising, pincer grip"},{"id":"s4","th":"1 – 2 ปี","en":"1 – 2 years","mark":"1–2","unit":"ปี","noteTh":"เดินคล่อง เริ่มพูดเป็นคำ กินข้าวเองเลอะทั้งโต๊ะ","noteEn":"Walking, first words, self-feeding (messily)"},{"id":"s5","th":"2 – 3 ปี","en":"2 – 3 years","mark":"2–3","unit":"ปี","noteTh":"วิ่ง ปีนป่าย เริ่มฝึกขับถ่าย ชอบเลียนแบบผู้ใหญ่","noteEn":"Running, climbing, potty training, copying grown-ups"},{"id":"s6","th":"3 ปีขึ้นไป","en":"3 years and up","mark":"3+","unit":"ปี","noteTh":"เข้าโรงเรียน เล่นกับเพื่อน เริ่มเลือกของเอง","noteEn":"Preschool, playing with friends, picking things out herself"},{"id":"sAll","any":true,"th":"ใช้ได้ทุกช่วงวัย","en":"All ages","mark":"∞","unit":"ทุกวัย","unitEn":"any","noteTh":"ของที่ซื้อครั้งเดียวแล้วใช้ยาว ตั้งแต่แรกเกิดจนโต","noteEn":"Bought once, used from day one and still going"}],"cats":[{"id":"feeding","th":"นม & ขวดนม","en":"Feeding"},{"id":"weaning","th":"อาหารเสริม","en":"Weaning"},{"id":"diaper","th":"ผ้าอ้อม","en":"Diapering"},{"id":"bath","th":"อาบน้ำ & ผิว","en":"Bath & Skin"},{"id":"sleep","th":"การนอน","en":"Sleep"},{"id":"clothes","th":"เสื้อผ้า","en":"Clothing"},{"id":"play","th":"ของเล่น & พัฒนาการ","en":"Play & Learn"},{"id":"gear","th":"รถเข็น & เดินทาง","en":"Gear & Travel"},{"id":"safety","th":"ความปลอดภัย","en":"Safety"},{"id":"mom","th":"ของใช้คุณแม่","en":"For Mom"},{"id":"other","th":"อื่น ๆ","en":"Other"}],"products":[{"imgUrl":"https://down-th.img.susercontent.com/file/th-11134207-81ztk-mp3yf157hpu41e@resize_w450_nl.webp","nameTh":"โลชั่นกันยุงสำหรับเด็ก","nameEn":"Mosquito repellent","brand":"ฺBluemoon","cat":"other","stages":["sAll"],"note":"โลชั่นนี้ใช้ดีมาก กันยุงได้นาน 7 ชม  นานสุดที่แม่เคยใช้แล้วค่าา","shopee":"https://s.shopee.co.th/80CUym6sQC","lazada":"https://s.lazada.co.th/s.ZjXiV1?c=s","img":"","updatedAt":"2026-09-08T04:02:28.462Z","createdAt":"2026-09-08T04:02:28.462Z","id":"k7vtc40xe5qptylagt6r"}],"settings":{"title":"Pynta Diary","tagline":"ชั้นวางของใช้น้องพินตา — ของที่ใช้จริงในแต่ละช่วงวัย ตั้งแต่แรกเกิดจนโต","ig":"","tiktok":"","youtube":"","facebook":""},"strings":{"th":{"items":"ชิ้น","stagesCovered":"ช่วงวัย","cats":"หมวด","search":"ค้นหาชื่อ / แบรนด์","all":"ทั้งหมด","allCats":"ทุกหมวด","empty":"ยังไม่มีของในช่วงวัยนี้","edit":"แก้ไข","del":"ลบ","save":"บันทึก","cancel":"ยกเลิก","newTitle":"เพิ่มสินค้า","editTitle":"แก้ไขสินค้า","sub":"ของใช้ที่เลือกเองจากที่บ้าน จดไว้ทีละช่วงวัย","disc":"ลิงก์สินค้าในหน้านี้เป็นลิงก์ Affiliate จาก Shopee และ Lazada — ถ้าซื้อผ่านลิงก์ ช่องจะได้ค่าคอมมิชชันเล็กน้อยโดยที่ราคาไม่เปลี่ยน ขอบคุณที่สนับสนุนไดอารี่ของน้องพินตานะคะ","foot2":"ของใช้ทุกชิ้นเลือกจากที่บ้านเราใช้เอง","editHint":"โหมดแก้คำ — คลิกที่ข้อความไหนก็ได้แล้วพิมพ์ทับ กดออกจากช่องเพื่อบันทึก","resetText":"คืนค่าเดิมทั้งหมด","doneText":"เสร็จแล้ว","textBtn":"แก้คำ"},"en":{"items":"items","stagesCovered":"stages","cats":"categories","search":"Search name / brand","all":"All","allCats":"All categories","empty":"Nothing shelved for this stage yet","edit":"Edit","del":"Delete","save":"Save","cancel":"Cancel","newTitle":"Add a product","editTitle":"Edit product","sub":"Chosen at home, noted down stage by stage","disc":"Product links are Shopee and Lazada affiliate links. Buying through them earns the channel a small commission at no extra cost to you — thank you for supporting Pynta's diary.","foot2":"Every item here is something we use at home.","editHint":"Text edit mode — click any text and type over it, then click away to save","resetText":"Reset all text","doneText":"Done","textBtn":"Edit text"}},"labels":{"cat.diaper":{"en":"","th":"ผ้าอ้อม"}}};
+var S=D.stages,C=D.cats,P=D.products,SET=D.settings,T=D.strings,LB=D.labels||{};
+var lang="th",stage="all",cat="all",q="";
+var $=function(s){return document.querySelector(s);};
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+function lbl(k,f){var o=LB[k];if(o&&o[lang])return o[lang];return f;}
+function t(k){return lbl("ui."+k,T[lang][k]);}
+function sName(s){return lbl("stage."+s.id+".name",lang==="en"?s.en:s.th);}
+function sAlt(s){return lbl("stage."+s.id+".alt",lang==="en"?s.th:s.en);}
+function sNote(s){return lbl("stage."+s.id+".note",lang==="en"?s.noteEn:s.noteTh);}
+function catName(id){for(var i=0;i<C.length;i++){if(C[i].id===id)return lbl("cat."+id,lang==="en"?C[i].en:C[i].th);}return "";}
+function chrome(){
+  var title=lbl("ui.title",SET.title);
+  $("#pTitle").innerHTML=esc(title).replace(/\s(\S+)$/," <em>$1<\/em>");
+  $("#pTag").textContent=lbl("ui.tagline",SET.tagline);
+  $("#pSub").textContent=lbl("ui.sub",T[lang].sub);
+  $("#lProd").textContent=t("items");$("#lStage").textContent=t("stagesCovered");$("#lCat").textContent=t("cats");
+  $("#search").placeholder=t("search");
+  $("#langBtn").textContent=lang==="th"?"EN":"ไทย";
+  $("#pDisc").textContent=t("disc");
+  $("#pFoot").textContent=title+" · "+t("foot2");
+  document.documentElement.lang=lang;
+  var f=[["Instagram",SET.ig],["TikTok",SET.tiktok],["YouTube",SET.youtube],["Facebook",SET.facebook]];
+  $("#pFollow").innerHTML=f.filter(function(x){return x[1];}).map(function(x){
+    return '<a href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+'</a>';}).join("");
+}
+function filters(){
+  var ps=$("#stagePills");ps.innerHTML="";
+  var mk=function(id,label){var b=document.createElement("button");b.className="pill";b.type="button";
+    b.textContent=label;b.setAttribute("aria-pressed",stage===id?"true":"false");
+    b.onclick=function(){stage=id;filters();render();};ps.appendChild(b);};
+  mk("all",t("all"));S.forEach(function(s){mk(s.id,sName(s));});
+  var sel=$("#catSel");sel.innerHTML="";sel.add(new Option(t("allCats"),"all"));
+  C.forEach(function(c){sel.add(new Option(catName(c.id),c.id));});
+  sel.value=cat;sel.onchange=function(){cat=sel.value;render();};
+}
+function match(p){
+  if(cat!=="all"&&p.cat!==cat)return false;
+  if(q){var h=((p.nameTh||"")+" "+(p.nameEn||"")+" "+(p.brand||"")+" "+(p.note||"")).toLowerCase();
+    if(h.indexOf(q.toLowerCase())<0)return false;}
+  return true;
+}
+function card(p){
+  var name=lang==="en"?(p.nameEn||p.nameTh):(p.nameTh||p.nameEn);
+  var alt=lang==="en"?(p.nameTh||""):(p.nameEn||"");
+  var ini=(name||"?").trim().charAt(0).toUpperCase();
+  var src=p.img||p.imgUrl||"";
+  var inner=src?'<img src="'+esc(src)+'" alt="'+esc(name)+'" loading="lazy" referrerpolicy="no-referrer">':'<span class="mono">'+esc(ini)+'</span>';
+  var L="";
+  if(p.shopee)L+='<a class="shop sp" href="'+esc(p.shopee)+'" target="_blank" rel="noopener nofollow sponsored"><i class="dot"></i>Shopee</a>';
+  if(p.lazada)L+='<a class="shop lz" href="'+esc(p.lazada)+'" target="_blank" rel="noopener nofollow sponsored"><i class="dot"></i>Lazada</a>';
+  return '<article class="card"><div class="icon"><div class="frame">'+inner+'</div></div><div class="cbody">'+
+    '<div class="cat">'+esc(catName(p.cat))+(p.brand?" · "+esc(p.brand):"")+'</div>'+
+    '<p class="cname">'+esc(name)+'</p>'+(alt?'<p class="cen">'+esc(alt)+'</p>':"")+
+    (p.note?'<p class="cnote">'+esc(p.note)+'</p>':"")+
+    (L?'<div class="links">'+L+'</div>':"")+'</div></article>';
+}
+function render(){
+  var list=P.filter(match);
+  var shown=S.filter(function(s){return stage==="all"||stage===s.id||s.any;});
+  $("#stages").innerHTML=shown.map(function(s){
+    var it=list.filter(function(p){return (p.stages||[]).indexOf(s.id)>=0;});
+    var body=it.length?'<div class="grid">'+it.map(card).join("")+'</div>':'<div class="empty">'+esc(t("empty"))+'</div>';
+    var u=lang==="en"?(s.unitEn||(s.unit==="ปี"?"yr":"mo")):s.unit;
+    return '<section class="stage'+(s.any?" anystage":"")+'" id="'+s.id+'"><div class="rail"><div class="notch"><b>'+esc(s.mark)+'</b>'+
+      '<span>'+esc(u)+'</span></div></div><div><div class="stagehead"><div class="en">'+esc(sAlt(s))+'</div>'+
+      '<h2>'+esc(sName(s))+'</h2><p>'+esc(sNote(s))+'</p></div>'+body+'</div></section>';
+  }).join("");
+  $("#stages").querySelectorAll("img").forEach(function(im){
+    im.onerror=function(){im.parentNode.innerHTML='<span class="mono">?</span>';};});
+  $("#cProd").textContent=P.length;
+  $("#cStage").textContent=S.filter(function(s){return !s.any&&P.some(function(p){return (p.stages||[]).indexOf(s.id)>=0;});}).length;
+  var seen={},n=0;P.forEach(function(p){if(p.cat&&!seen[p.cat]){seen[p.cat]=1;n++;}});
+  $("#cCat").textContent=n;
+}
+$("#langBtn").onclick=function(){lang=lang==="th"?"en":"th";chrome();filters();render();};
+$("#search").oninput=function(e){q=e.target.value;render();};
+chrome();filters();render();
+})();
+</script>
+</body>
+</html>
